@@ -1,0 +1,2 @@
+# myLeetcode
+work it out.
