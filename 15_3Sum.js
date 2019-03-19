@@ -112,6 +112,47 @@ var threeSum = function(nums){
 // }
 
 
+<<<<<<< HEAD
+=======
+
+var threeSum = function(nums){
+    var nums_p = [];
+    var nums_n = [];
+    var ret = [];
+    nums.sort(asc_sort);    //先对数组进行排序
+    console.log("排序后的数组是:   "+nums);
+    for(var i=0; i<nums.length; i++){   //分成两个数组，一正一负
+        if(nums[i]<0)
+            nums_n.push(nums[i]);
+        else
+            nums_p.push(nums[i]);
+    }
+    for(var i=0; i<nums_n.length; i++){
+        for(var j=nums_p.length-1; j>=0; j--){
+            let twoSum = nums_n[i]+nums_p[j];
+            if(twoSum>0){
+                let pos = nums_n.indexOf(-twoSum);
+                if(pos!==-1 && pos>i){ // && pos>i
+                    let temp = [nums_n[i],nums_n[pos],nums_p[j]];
+                    ret.push(temp);
+                }    
+            } else{
+                let pos = nums_p.indexOf(-twoSum);
+                if(pos!==-1 && pos<j){ //&& pos<j
+                    let temp = [nums_n[i],nums_p[pos],nums_p[j]];
+                    ret.push(temp);
+                }
+            }
+        }
+    }
+    console.log("正数数组是:   "+nums_p);
+    console.log("负数数组是:   "+nums_n);
+    console.log("返回结果是:   "+ret);
+    return ret;
+}
+
+
+>>>>>>> ae28efd159605f89a1ce099f3b34878eaec242f1
 var asc_sort = function(a,b){
     return a-b;
 }
