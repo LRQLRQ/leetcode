@@ -68,9 +68,5 @@ var longestPalindrome = function(s) {
 };
 
 
-var lrq = {};
-lrq.name = "刘瑞卿";
-console.log(lrq.name);
-
 
 
