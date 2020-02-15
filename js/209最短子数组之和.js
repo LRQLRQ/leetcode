@@ -29,3 +29,26 @@ var nums1 = [2, 3, 1, 2, 4, 3];
 var s1 = 7;
 var test = MinSubArraySum(nums1, s1);
 console.log(test);
+
+
+function way2(nums, s) {
+  let sum = 0,left = 0;
+  let minLength = nums.length+1;
+  for(let i=0; i<nums.length; i++) {
+    if(sum<s) {
+      sum += nums[i];
+    }
+    while(sum>=s && left<=i) {
+      minLength = minLength<i-left+1 ? minLength: i-left+1;
+      console.log("left: "+left+"  right: "+i);
+      sum -= nums[left++];
+    }
+  }
+  return minLength===nums.length+1? 0: minLength;
+}
+
+var test2 = way2(nums1, s1);
+console.log("--------");
+console.log(test2);
+
+
